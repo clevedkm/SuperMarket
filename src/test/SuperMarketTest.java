@@ -17,12 +17,6 @@ import com.cdkm.SuperMarket.produitDispo;
 public class SuperMarketTest {
 	
 	
-	@Before
-	public void setUp() {
-		System.out.println("@Before - setUp");
-	}
-	
-	
 	@Test
 	public void TestVerifierStock() {
 		
