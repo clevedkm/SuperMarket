@@ -7,15 +7,16 @@ import java.util.Scanner;
 
 public class SuperMarket {
 	
-	enum produitDispo{
+	public enum produitDispo{
 		apple,
 		orange,
 		watermelon
 	}
 	
+	
 	static Map<String, Produit> mapProduit;
 
-	private static Map<String, Produit> creationProduitEnStock() {
+	public static Map<String, Produit> creationProduitEnStock() {
 		mapProduit = new HashMap<String, Produit>();
 		
 		mapProduit.put(produitDispo.apple.name(), new Produit("Apple", 0.20, 4));
@@ -40,13 +41,14 @@ public class SuperMarket {
 		
 	}
 
+	/**
+	 * controle de saisie pour le choix de de caracter qui correspond au produit
+	 * @param c
+	 */
 
-	private static void controleDeProduitChoisit(String c) {
-		if(!c.isEmpty()) {
+	public static void controleDeProduitChoisit(String c) {
+		if(!c.isEmpty() && c.length()==1) {
 			char valeur = c.toUpperCase().charAt(0);
-			Scanner scan;
-			int qte;
-			
 			switch (valeur) {
 			
 			case 'A':
@@ -63,13 +65,13 @@ public class SuperMarket {
 			default:
 				System.out.println("Choix de produit erroné A => Apple; O =>Orange; W =>Watermelon  ");
 			}
-		}
-			
-		
+		}else {
+			System.out.println("Choix de produit erroné A => Apple; O =>Orange; W =>Watermelon ");
+		}	
 	}
 
 
-	private static void verifierQuantiteDansStockWatermelon() {
+	public static void verifierQuantiteDansStockWatermelon() {
 		
 			Produit produit = mapProduit.get(produitDispo.watermelon.name());
 			while(produit.getQuantite()> 0) {
@@ -95,7 +97,7 @@ public class SuperMarket {
 	}
 
 
-	private static void verifierQuantiteDansStockOrange() {
+	public static void verifierQuantiteDansStockOrange() {
 		Produit produit = mapProduit.get(produitDispo.orange.name());
 		while(produit.getQuantite()> 0) {
 			System.out.println("saisir la quantite souhaitée, quantite disponible en stock :"+produit.getQuantite());

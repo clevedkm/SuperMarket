@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author clevedkm
- *
- */
-module SuperMarket {
-}
